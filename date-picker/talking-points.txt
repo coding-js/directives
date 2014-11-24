@@ -1,0 +1,3 @@
+- link configuration
+- add callback
+- link value via ngmodel

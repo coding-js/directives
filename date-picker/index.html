@@ -1,0 +1,20 @@
+<html ng-app="myApp">
+<head>
+  <link rel="stylesheet" href="../bower_components/jqueryui/themes/ui-lightness/jquery-ui.css" />
+</head>
+<body ng-controller="MyController">
+  <date-picker ng-model="mydate" on-close="doSomethingCool()"></date-picker>
+  <hr>
+  {{mydate}}
+  <hr>
+  <button ng-click="mydate = '06/03/1979'">Go to my birth date</button>
+  <hr>
+  <div>
+    <a href="http://api.jqueryui.com/datepicker/" target="_blank">Checkout jQuery UI Date Picker Docs</a>
+  </div>
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/jqueryui/jquery-ui.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="date-picker.js"></script>
+</body>
+</html>
