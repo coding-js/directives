@@ -1,0 +1,12 @@
+<html ng-app="myApp">
+<head>
+</head>
+<body>
+  <datasource name="colours" url="colours.json"></datasource>
+  <ul>
+    <li ng-repeat="colour in colours.results" style="color: {{colour.value}}">{{colour.name}}</li>
+  </ul>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="datasource.js"></script>
+</body>
+</html>
