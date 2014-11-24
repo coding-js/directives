@@ -1,0 +1,3 @@
+- add name attribute
+- move template to file
+- demonstrate replace / transclusion
