@@ -18,17 +18,10 @@ li {
 }
 </style>
 </head>
-<body ng-init="$limit = 10">
-  Select a date: <date-picker ng-model="mydate"></date-picker>
-
-  <datasource name="article" url="article{{mydate.split('/')[1]}}.txt" on-load="$limit = 10"></datasource>
-
-  <div ng-show="article.error && !article.loading" class="alert alert-danger">Error loading article for {{mydate}}</div>
-
-  <loading ng-show="article.loading"></loading>
-
-  <ul ng-if="!article.loading && !article.error && article.results" on-scroll-end="$limit = $limit + 10">
-    <li ng-repeat="paragraph in article.results.split('\n\n') | limitTo:$limit">{{paragraph}}</li>
+<body>
+  <datasource name="article" url="article.txt"></datasource>
+  <ul>
+    <li ng-repeat="paragraph in article.split('\n\n')">{{paragraph}}</li>
   </ul>
   <script src="../bower_components/jquery/dist/jquery.js"></script>
   <script src="../bower_components/jqueryui/jquery-ui.js"></script>

@@ -4,24 +4,12 @@
 <link rel="stylesheet" href="../common/app.css" >
 </head>
 <body>
-  <div class="row">
-    <div class="col-md-12">
-      <p>  
-      Show all colours: <input type="checkbox" ng-model="full">
-      Produce an error: <input type="checkbox" ng-model="produceError">
-      </p>
-      <hr>
-      <div ng-show="colours.error && !colours.loading" class="alert alert-danger">{{colours.error}}</div>
-      <datasource name="colours" url="colours{{full ? 'full' : ''}}.json{{produceError ? 'asdf' : ''}}"></datasource>
-      <loading ng-show="colours.loading"></loading>
-      <ul ng-hide="colours.loading || colours.error">
-        <li ng-repeat="colour in colours.results" style="color: {{colour.value}}">{{colour.name}}</li>
-      </ul>
-    </div>
-  </div>
+  <datasource name="colours" url="colours.json"></datasource>
+  <ul>
+    <li ng-repeat="colour in colours" style="color: {{colour.value}}">{{colour.name}}</li>
+  </ul>
   <script src="../bower_components/angular/angular.js"></script>
   <script src="../common/app.js"></script>
-  <script src="../loading/loading.js"></script>
   <script src="datasource.js"></script>
 </body>
 </html>

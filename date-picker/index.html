@@ -2,15 +2,8 @@
 <head>
   <link rel="stylesheet" href="../bower_components/jqueryui/themes/ui-lightness/jquery-ui.css" />
 </head>
-<body ng-controller="MyController">
-  <date-picker 
-    ng-model="mydate" 
-    day-names-min="lun,mar,mer,jeu,ven,sam,dim"
-    on-close="doSomethingCool()"></date-picker>
-  <hr>
-  {{mydate}}
-  <hr>
-  <button ng-click="mydate = '06/03/1979'">Go to my birth date</button>
+<body>
+  <date-picker></date-picker>
   <hr>
   <div>
     <a href="http://api.jqueryui.com/datepicker/" target="_blank">Checkout jQuery UI Date Picker Docs</a>

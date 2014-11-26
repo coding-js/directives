@@ -1,18 +1,12 @@
 angular.module('myApp').directive('onScrollEnd', function() {
+
+  var isAtBottom = function(element) {
+    var maxScrollTop = element[0].scrollHeight - element.outerHeight();
+    return element.scrollTop() > maxScrollTop;
+  };
+
   return {
     restrict: 'A',
-    link: function(scope, element, attrs) {
-      var callbackExpression = attrs.onScrollEnd;
-      if (callbackExpression) {
-        element.scroll(function(e) {
-          var maxScrollTop = element[0].scrollHeight - element.outerHeight();
-          if (element.scrollTop() > maxScrollTop) {
-            scope.$apply(function() {
-              scope.$eval(callbackExpression);
-            });
-          }
-        });
-      }
-    }
+    link: function(scope, element, attrs) {}
   };
 });
