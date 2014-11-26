@@ -6,14 +6,24 @@ app.directive('datasource', function($http) {
     scope: {
       url: "@"
     },
-    link: function(scope, $el, attrs, ngModel) {
+    link: function(scope, $el, attrs) {
       var datasourceName = attrs['name'];
       var datasource = {};
       scope.$parent[datasourceName] = datasource;
       scope.$watch('url', function() {
-        $http.get(scope.url).success(function(results) {
-          datasource.results = results;
-        });
+        datasource.loading = true;
+        setTimeout(function() {
+          $http.get(scope.url)
+            .success(function(results) {
+              datasource.results = results;
+              datasource.loading = false;
+              datasource.error = false;
+            })
+            .error(function(err) {
+              datasource.error = err;
+              datasource.loading = false;
+            })
+        }, 1000);
       });
     }
   }

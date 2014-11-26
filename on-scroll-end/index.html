@@ -16,7 +16,7 @@ li {
 </style>
 </head>
 <body ng-init="$limit = 10">
-  <datasource name="article" url="lorem.txt"></datasource>
+  <datasource name="article"></datasource>
   <ul ng-if="article && article.results" on-scroll-end="$limit = $limit + 10">
     <li ng-repeat="paragraph in article.results.split('\n\n') | limitTo:$limit">{{paragraph}}</li>
   </ul>
