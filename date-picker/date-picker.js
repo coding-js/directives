@@ -13,16 +13,21 @@ app.directive('datePicker', function() {
     replace: true,
     template: "<input type='text'>",
     link: function(scope, $el, attrs, ngModel) {
-      var callbackExpression = attrs.onClose;
+      var pickerOptions = {};
 
-      $el.datepicker({
-        onClose: function(newValue) {
+      if (attrs.dayNamesMin) {
+        pickerOptions.dayNamesMin = attrs.dayNamesMin.split(",");
+      }
+
+      if (attrs.onClose) {
+        pickerOptions.onClose = function(newValue) {
           scope.$eval(callbackExpression);
           scope.$apply(function() {
             ngModel.$setViewValue(newValue);
           });
-        }
-      });
+        };        
+      }
+      $el.datepicker(pickerOptions);
 
       ngModel.$render = function() {
         $el.datepicker( "setDate", ngModel.$modelValue )

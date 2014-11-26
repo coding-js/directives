@@ -3,7 +3,10 @@
   <link rel="stylesheet" href="../bower_components/jqueryui/themes/ui-lightness/jquery-ui.css" />
 </head>
 <body ng-controller="MyController">
-  <date-picker ng-model="mydate" on-close="doSomethingCool()"></date-picker>
+  <date-picker 
+    ng-model="mydate" 
+    day-names-min="lun,mar,mer,jeu,ven,sam,dim"
+    on-close="doSomethingCool()"></date-picker>
   <hr>
   {{mydate}}
   <hr>

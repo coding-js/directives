@@ -6,7 +6,7 @@ app.directive('datasource', function($http) {
     scope: {
       url: "@"
     },
-    link: function(scope, $el, attrs) {
+    link: function(scope, $el, attrs) {      
       var datasourceName = attrs['name'];
       var datasource = {};
       scope.$parent[datasourceName] = datasource;
@@ -18,6 +18,9 @@ app.directive('datasource', function($http) {
               datasource.results = results;
               datasource.loading = false;
               datasource.error = false;
+              if (attrs.onLoad) {
+                scope.$parent.$eval(attrs.onLoad);
+              }
             })
             .error(function(err) {
               datasource.error = err;
