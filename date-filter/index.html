@@ -1,0 +1,16 @@
+<html ng-app="myApp">
+<head>
+  <link rel="stylesheet" href="../bower_components/jqueryui/themes/ui-lightness/jquery-ui.css" />
+</head>
+<body>
+  <date-filter name="theRange"></date-filter>
+  <hr>
+  <label>Current Range:</label> {{theRange.from}} - {{theRange.to}}
+  <script src="../bower_components/moment/moment.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/jqueryui/jquery-ui.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../common/app.js"></script>
+  <script src="date-filter.js"></script>
+</body>
+</html>
